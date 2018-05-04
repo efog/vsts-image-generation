@@ -11,6 +11,7 @@
         "image_folder": "/image",
         "commit_file": "/image/commit.txt",
         "metadata_file": "/image/metadata.txt",
+        "installer_script_folder": "/image/installers",
         "helper_script_folder": "/image/helpers",
         "vm_size": "Standard_DS2_v2"
     },
@@ -30,7 +31,8 @@
             "os_type": "Linux",
             "image_publisher": "Canonical",
             "image_offer": "UbuntuServer",
-            "image_sku": "16.04-LTS"
+            "image_sku": "18.04-LTS",
+            "os_disk_size_gb": "128"
         }
     ],
     "provisioners": [
@@ -58,6 +60,11 @@
             "destination": "{{user `helper_script_folder`}}"
         },
         {
+            "type": "file",
+            "source": "{{template_dir}}/scripts/installers",
+            "destination": "{{user `installer_script_folder`}}"
+        },
+        {
             "type": "shell",
             "scripts":[
                 "{{template_dir}}/scripts/base/preparemetadata.sh"
@@ -70,13 +77,6 @@
                 "{{template_dir}}/scripts/installers/dotnetcore.sh"
             ],
             "execute_command": "sudo sh -c '{{ .Vars }} METADATA_FILE={{user `metadata_file`}} HELPER_SCRIPTS={{user `helper_script_folder`}} {{ .Path }}'"
-        },
-        {
-            "type": "shell",
-            "scripts": [
-                "{{template_dir}}/scripts/installers/agent.sh"
-            ],
-            "execute_command": "sudo sh -c '{{ .Vars }} {{ .Path }}'"
         },
         {
             "type": "file",

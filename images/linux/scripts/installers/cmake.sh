@@ -29,5 +29,4 @@ fi
 
 ## Document what was added to the image
 echo "Lastly, documenting what we added to the metadata file"
-DocumentInstalledItem "cmake ($(cmake -v))"
-
+DocumentInstalledItem "CMake ($(cmake --version | head -n 1))"

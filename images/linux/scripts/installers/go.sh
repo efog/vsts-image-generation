@@ -17,6 +17,7 @@ mkdir -p /usr/local/go$VERSION
 tar -C /usr/local/go$VERSION -xzf go$VERSION.linux-amd64.tar.gz --strip-components=1 go
 rm go$VERSION.linux-amd64.tar.gz
 
-## Document what was added to the image
-DocumentInstalledItem "Go ($VERSION)"
+ln -s /usr/local/go$VERSION/bin/* /usr/bin/
 
+## Document what was added to the image
+DocumentInstalledItem "Go $VERSION ($(go version))"

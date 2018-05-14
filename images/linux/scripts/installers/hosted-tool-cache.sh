@@ -24,4 +24,3 @@ for setup in $setups; do
 	./$(basename $setup);
 	cd $original_directory;
 done;
-

@@ -9,12 +9,18 @@
 ## Source the helpers for use with the script
 source $HELPER_SCRIPTS/document.sh
 
+LSB_RELEASE=$(lsb_release -rs)
+
 # Install Powershell Core
-curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
-curl https://packages.microsoft.com/config/ubuntu/$(UBUNTU_VERSION)/prod.list | tee /etc/apt/sources.list.d/microsoft.list \
-apt-get install -y --no-install-recommends powershell
+# Not yet in bionic packages
+# apt-get install -y --no-install-recommends powershell
+
+curl -L -o /tmp/powershell.tar.gz https://github.com/PowerShell/PowerShell/releases/download/v6.0.2/powershell-6.0.2-linux-x64.tar.gz
+mkdir -p /usr/local/powershell/6.0.2
+tar zxf /tmp/powershell.tar.gz -C /usr/local/powershell/6.0.2/
+chmod +x /usr/local/powershell/6.0.2/pwsh
+ln -s /usr/local/powershell/6.0.2/pwsh /usr/bin/pwsh
 
 ## Document what was added to the image
 echo "Lastly, documenting what we added to the metadata file"
 DocumentInstalledItem "Powershell core"
-

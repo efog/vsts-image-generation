@@ -8,6 +8,7 @@
 
 ## Source the helpers for use with the script
 source $HELPER_SCRIPTS/document.sh
+source $HELPER_SCRIPTS/apt.sh
 
 ## Test to see if the software in question is already installed, if not install it
 echo "Checking to see if the installer script has already been run"
@@ -20,9 +21,11 @@ fi
 ## Run tests to determine that the software installed as expected
 echo "Testing to make sure that script performed as expected, and basic scenarios work"
 if [ -z $EXAMPLE_VAR ]; then
-    echo "EXAPMLE_VAR variable was not set as expected"
+    echo "EXAMPLE_VAR variable was not set as expected"
     return -1
 else
+    echo "EXAMPLE_VAR was set properly"
+fi
 
 ## Document what was added to the image
 echo "Lastly, documenting what we added to the metadata file"

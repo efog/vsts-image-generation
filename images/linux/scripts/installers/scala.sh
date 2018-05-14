@@ -15,4 +15,3 @@ curl -s https://raw.githubusercontent.com/paulp/sbt-extras/master/sbt > /usr/loc
 ## Document what was added to the image
 echo "Lastly, documenting what we added to the metadata file"
 DocumentInstalledItem "Scala"
-

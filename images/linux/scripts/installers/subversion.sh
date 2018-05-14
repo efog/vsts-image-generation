@@ -12,7 +12,13 @@ source $HELPER_SCRIPTS/document.sh
 # Install Subversion
 apt-get install -y --no-install-recommends subversion
 
+## Run tests to determine that the software installed as expected
+echo "Testing to make sure that script performed as expected, and basic scenarios work"
+if ! command -v svn; then
+    echo "Subversion (svn) was not installed"
+    return -1
+fi
+
 ## Document what was added to the image
 echo "Lastly, documenting what we added to the metadata file"
-DocumentInstalledItem "subversion"
-
+DocumentInstalledItem "Subversion ($(svn --version | head -n 1))"

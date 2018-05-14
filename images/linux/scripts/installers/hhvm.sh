@@ -8,6 +8,7 @@
 
 ## Source the helpers for use with the script
 source $HELPER_SCRIPTS/document.sh
+source $HELPER_SCRIPTS/apt.sh
 
 PACKAGE=hhvm
 
@@ -17,7 +18,7 @@ if ! IsInstalled $PACKAGE; then
     apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xB4112585D386EB94
     add-apt-repository https://dl.hhvm.com/ubuntu
     apt-get update
-    apt-get install -y hhvm
+    apt-get -qq install -y hhvm
 else
     echo "$PACKAGE already installed"
 fi
@@ -27,9 +28,8 @@ echo "Testing to make sure that script performed as expected, and basic scenario
 if ! IsInstalled $PACKAGE; then
     echo "$PACKAGE was not installed"
     return -1
-else
+fi
 
 ## Document what was added to the image
 echo "Lastly, documenting what we added to the metadata file"
-DocumentInstalledItem "hhvm"
-
+DocumentInstalledItem "HHVM ($(hhvm --version | head -n 1))"

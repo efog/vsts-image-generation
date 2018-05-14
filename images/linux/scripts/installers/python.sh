@@ -17,4 +17,3 @@ DocumentInstalledItem "python"
 DocumentInstalledItem "python-pip"
 DocumentInstalledItem "python3"
 DocumentInstalledItem "python3-pip"
-

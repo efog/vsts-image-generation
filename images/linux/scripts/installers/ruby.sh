@@ -10,10 +10,3 @@ source $HELPER_SCRIPTS/document.sh
 
 # Install Ruby requirements
 apt-get install -y libz-dev openssl libssl-dev
-
-## Document what was added to the image
-echo "Lastly, documenting what we added to the metadata file"
-DocumentInstalledItem "libz-dev"
-DocumentInstalledItem "openssl"
-DocumentInstalledItem "libssl-dev"
-

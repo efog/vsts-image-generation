@@ -25,14 +25,15 @@
 
             "location": "{{user `location`}}",
             "vm_size": "{{user `vm_size`}}",
+            "resource_group_name": "{{user `resource_group`}}",
+            "storage_account": "{{user `storage_account`}}",
+            "capture_container_name": "images",
+            "capture_name_prefix": "packer",
             "os_type": "Linux",
             "image_publisher": "Canonical",
             "image_offer": "UbuntuServer",
             "image_sku": "18.04-LTS",
-            "os_disk_size_gb": "128",
-
-            "managed_image_name": "packer-ubuntu18-managedimage-4",
-            "managed_image_resource_group_name": "{{user `resource_group`}}"
+            "os_disk_size_gb": "128"
         }
     ],
     "provisioners": [

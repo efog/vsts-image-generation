@@ -11,6 +11,7 @@ source $HELPER_SCRIPTS/document.sh
 
 # Download hosted tool cache
 AGENT_TOOLSDIRECTORY=/opt/hostedtoolcache
+echo "AGENT_TOOLSDIRECTORY=$AGENT_TOOLSDIRECTORY" | tee -a /etc/environment
 azcopy --recursive \
        --source https://vstsagenttools.blob.core.windows.net/tools/hostedtoolcache/linux \
        --destination $AGENT_TOOLSDIRECTORY

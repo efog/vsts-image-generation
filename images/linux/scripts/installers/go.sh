@@ -17,6 +17,8 @@ mkdir -p /usr/local/go$VERSION
 tar -C /usr/local/go$VERSION -xzf go$VERSION.linux-amd64.tar.gz --strip-components=1 go
 rm go$VERSION.linux-amd64.tar.gz
 
+echo "GOROOT=/usr/local/go$VERSION" | tee -a /etc/environment
+
 ln -s /usr/local/go$VERSION/bin/* /usr/bin/
 
 ## Document what was added to the image

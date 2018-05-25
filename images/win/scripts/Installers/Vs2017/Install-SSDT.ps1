@@ -11,6 +11,7 @@ $InstallerURI = 'https://download.microsoft.com/download/4/6/7/467D4341-11DB-4D3
 $InstallerName = 'SSDT-Setup-ENU.exe'
 $logFilePath = "$env:TEMP\ssdtlog.txt"
 $ArgumentList = ('/install', 'INSTALLALL', '/passive', '/norestart', "/log `"$logFilePath`"")
+$LayoutArgumentList = ('/layout', "/log `"$logFilePath`"")
 
 $exitCode = Install-EXE -Url $InstallerURI -Name $InstallerName -ArgumentList $ArgumentList
 

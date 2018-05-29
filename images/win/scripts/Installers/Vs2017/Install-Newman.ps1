@@ -23,9 +23,6 @@ function Install-Newman
     }
 }
 
-
-choco install wixtoolset -y --force
-
 #Installing VS extension 'Wix Toolset Visual Studio 2017 Extension'
 $exitCode = Install-Newman
 
